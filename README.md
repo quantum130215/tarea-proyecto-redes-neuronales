@@ -1,7 +1,8 @@
 # tarea-proyecto-redes-neuronales
-proyecto de tarea 
-INTRODUCCION
+proyecto de tarea
 
+
+INTRODUCCION
 Se desarrolló un codigo de deteccion facial, que permite crear un registro accediendo
 a la camara del dispositivo, haciendo imagenes que luego se usaran para tener una base
 de datos para que la red neuronal pueda identificar a quien esta usando el dispositivo
@@ -17,38 +18,20 @@ la computadora.
 
 PLANTEAMIENTO DE LO QUE SE HIZO 
 
-Me aleje de la idea original de detectar mi rostros con miles de imagenes, ya que por
-lo limitado que es mi computadora, no tiene la capacidad de procesar tantas a tal
-grado que intente hacer un poco de optimizacion arriegando el resultado de predicción
-reduciendo la cantidad de imagenes en el codigo que comence al principio del proyecto,
-pero aun asi mi computadora no podia terminar el trabajo, tardando bastante en hacer
-la lectura de imagenes. Porcedí a leer lo que se nos pedia en la tarea y se me ocurrio
-una red neuronal de detector de rostros como en los celulares, lo que al final se
-termino desarrollando.
+Me aleje de la idea original de detectar mi rostros con miles de imagenes, ya que por lo limitado que es mi computadora, no tiene la capacidad de procesar tantas 
+a tal grado que intente hacer un poco de optimizacion arriegando el resultado de predicción reduciendo la cantidad de imagenes en el codigo que comence al principio
+del proyecto,pero aun asi mi computadora no podia terminar el trabajo, tardando bastante en hacer la lectura de imagenes. Procedí a leer lo que se nos pedia en la
+tarea y se me ocurriouna red neuronal de detector de rostros como en los celulares, lo que al final se termino desarrollando.
 
-La biblioteca de OpenCV que se importa de manera "import cv2", ya que esta nos da
-un gran catalogo de herramientas, aunque se tiene que descargar la biblioteca yendo
-al cmd y teclear "pip install cv2" y con este tener todas estas herremientas. 
-Usando el comando para poder acceder a la camara usando "cv2.VideoCapture()" y 
-luego se escribio un clasificador de rostros pre entrenado de la seccion de 
-herramientas de cv2 usando el comando 
-de"cv2.CascadeClassifier(cv2.data.haarcascades), una vez que tuvimos esto y 
-teniamos todo listo se coloco un input para poder darle un nombre al registro de 
-las imagenes que se iban a sacar y un cilco for por si se vuelve a ingresar el 
-mismo nombre pedir que se introduzca otro. Luego se hizo un ciclo for que será el que nos 
-creé las imagenes dandole a esta variable un numero alto de imagenes al cual 
-llegar, ya que, aunque podemos ponerle un número pequeño para que no tarde tanto, 
-no es recomendable para que tenga una buena cantidad que pueda contrastar cuando se 
-carguen varios nombres, la siguiente parte del codigo que es la parte de 
-identificacción del rostro, se uso el mismo comando para acceder a la camara del 
-dispositivo y se declaro como la variable cap esto con la finalidad de poder 
-despues ajustar los parametros de la imagen, luego se uso la herramienta que nos 
-permite dibujar rectangulos en las imagenes de hechas con la camara para que, con 
-el clasificador que estamos usando, pueda este detectar y clasificar las imagenes 
-que correspondan a la que se encuentra frente a la camara.
+Se uso la biblioteca OpenCV, ya que investiando nos da una gran cantidad de herramientas de procesamiento de imágenes y videos para identificar objetos, rostros o
+incluso la escritura a mano de un ser humano, usando varias de las herramientas se armo el codigo. 
 
+Creamos una base de datos donde se guardaran nuestras imagenes, estas imagenes las mandamos a la carpeta images, en la seccion del if isExist, el codigo comparara la
+base de datos ya existentes, si llegara a tener dos bases de datos el mismo nombre, el codigo lo notara y solicitara un nuevo nombre para poder guardar esta nueva
+entrada de datos, si no comparten el mismo nombre, este solo creara la base de datos nueva. Luego pasando a la siguiente parte del codigo, generaremos la base de datos 
+sacando los frames de un video que se realiza con la camara conectada al dispositivo.
 
-
-
-
-
+Para la siguiente parte del codigo, mediante la herramienta de VideoCapture obtenemos informacion deseada y la comparará con la base de datos que existe en la
+computadora, cargamos el modelo con una base de datos que queremos, y al final se hace un ciclo que comparará las imagenes de entrada con el rostro que esta siendo 
+grabado, generando un recuadro con la herramienta "rectangle" , que permité comparar las imagenes de la base de datos con la entrada de datos generada por el video
+generado.
